@@ -12,6 +12,55 @@ set number
 
 set cc=80
 
+
+" ============================================
+
+
+" Disable arrow keys
+no <down> <Nop>
+no <left> <Nop>
+no <right> <Nop>
+no <up> <Nop>
+ino <down> <Nop>
+ino <left> <Nop>
+ino <right> <Nop>
+ino <up> <Nop>
+
+" Turn on hybrid numbers
+" :set number relativenumber
+
+" Soft word wrap
+:set wrap
+:set linebreak
+
+" Highlight search results
+" :set hlsearch
+
+" Set tab size to be 2 spaces, and print spaces when pressing tab
+" Shiftwidth determines how many columns to indent in motions
+:set tabstop=2 shiftwidth=2 expandtab
+
+" Allow buffers to be hidden
+:set hidden
+
+" Type gb to show buffers and start switching
+nnoremap gb :ls<cr>:b<space>
+
+" Copy and paste global clipboard
+vmap <C-c> "+yi
+vmap <C-x> "+c
+vmap <C-v> c<ESC>"+p
+imap <C-v> <ESC>"+pa
+
+" Map esc to capslock when entering vim,
+" and undo change when exiting.
+au VimEnter * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
+au VimLeave * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
+
+
+"========================================================
+
+
 " Airline configuration
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'default'
