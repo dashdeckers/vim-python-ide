@@ -30,6 +30,9 @@ set cc=80
 " Type gb to show buffers and start switching
 nnoremap gb :ls<cr>:b<space>
 
+" Disable ALE by default
+let g:ale_enabled = 0
+
 " Copy and paste global clipboard
 vmap <C-c> "+yi
 vmap <C-x> "+c
